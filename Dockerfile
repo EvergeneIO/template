@@ -1,4 +1,4 @@
-FROM denoland/deno:alpine-1.10.3
+FROM denoland/deno:alpine-1.11.0
 
 USER deno
 
