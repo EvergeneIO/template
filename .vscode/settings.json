@@ -8,6 +8,7 @@
     "source.fixAll": true
   },
   "deno.suggest.imports.hosts": {
-    "https://deno.land": false
+    "https://deno.land": false,
+    "https://denopkg.com": false
   }
 }

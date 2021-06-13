@@ -6,6 +6,6 @@ WORKDIR /app
 
 COPY . .
 
-RUN deno cache --unstable mod.ts
+RUN deno cache --unstable deps.ts
 
-CMD [ "deno", "run", "--allow-env", "--allow-read", "--allow-write", "--allow-net", "--unstable", "./mod.ts" ]
+CMD [ "deno", "run", "--allow-env", "--allow-read", "--allow-run", "--allow-net", "--unstable", "./mod.ts" ]
