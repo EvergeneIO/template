@@ -12,4 +12,4 @@ export type {
 } from "https://deno.land/x/nessie@2.0.0-rc2/mod.ts";
 export { copy, copySync, walk, walkSync } from "https://deno.land/std@0.98.0/fs/mod.ts";
 export { format } from "https://deno.land/std@0.96.0/datetime/mod.ts";
-export * as mam from "https://denopkg.com/itohatweb/mammoth@master/mod.ts"
+export * as mam from "https://denopkg.com/itohatweb/mammoth@master/mod.ts";
