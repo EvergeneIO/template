@@ -21,7 +21,6 @@ app.addEventListener("listen", ({ hostname, port }) => {
         "localhost"}:${port}`,
     );
 });
-
 // * Middlerwares
 app.use(middlewares.loggerMiddleware);
 app.use(middlewares.timingMiddleware);
