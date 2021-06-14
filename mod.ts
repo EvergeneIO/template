@@ -1,5 +1,5 @@
 import { Application, Router, mam } from "./deps.ts";
-import { version } from "./version.ts";
+import { version } from "./src/constants/version.ts";
 import { configs } from "./src/config/configs.ts"
 import { log, Loglevels } from "./src/utils/logger.ts";
 import * as middlewares from "./src/middlewares/middlewares.ts";
