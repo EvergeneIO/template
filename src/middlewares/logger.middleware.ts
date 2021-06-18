@@ -1,4 +1,5 @@
-import { Context, brightGreen, brightBlue, brightYellow, brightRed, green, yellow, blue, white, red, bold } from "../../deps.ts";
+import { brightGreen, brightBlue, brightYellow, brightRed, green, yellow, blue, white, red, bold } from "../../deps.ts";
+import { Context } from "../../types/context.ts";
 export async function loggerMiddleware(ctx: Context, next: () => Promise<unknown>) {
   await next();
   const reqTime = ctx.response.headers.get("X-Response-Time");
