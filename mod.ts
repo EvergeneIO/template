@@ -1,7 +1,7 @@
 import { Application, Router, mam } from "./deps.ts";
 import { version } from "./src/constants/version.ts";
 import { configs } from "./src/config/configs.ts"
-import { log, Loglevels } from "./src/utils/logger.ts";
+import { log } from "./src/utils/logger.ts";
 import * as middlewares from "./src/middlewares/middlewares.ts";
 import { router } from "./router.ts";
 
@@ -25,6 +25,7 @@ app.addEventListener("listen", ({ hostname, port }) => {
 app.use(middlewares.loggerMiddleware);
 app.use(middlewares.timingMiddleware);
 app.use(middlewares.errorMiddleware);
+app.use(middlewares.jwtMiddleware);
 
 // Routers
 app.use(router.routes());
