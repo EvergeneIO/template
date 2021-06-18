@@ -5,6 +5,7 @@
   "editor.formatOnSave": true,
   "editor.fontFamily": "cascadia code",
   "editor.fontLigatures": true,
+  "editor.tabCompletion": "on",
   "editor.codeActionsOnSave": {
     "source.organizeImports": true,
     "source.fixAll": true
