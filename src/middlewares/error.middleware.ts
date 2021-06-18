@@ -1,4 +1,5 @@
-import { isHttpError, Status, Context } from "../../deps.ts";
+import { isHttpError, Status } from "../../deps.ts";
+import { Context } from "../../types/context.ts";
 import { configs } from "../config/configs.ts";
 
 export async function errorMiddleware(ctx: Context, next: () => Promise<unknown>) {
