@@ -1,0 +1,7 @@
+{
+  "Route": {
+    "prefix": ["route", "new-route", "r"],
+    "body": ["router.get(\"/\", async (ctx: Context) => {", "\tctx.response.body = { message: true }\n", "})"],
+    "description": "Create a new route."
+  }
+}
