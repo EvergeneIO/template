@@ -1,4 +1,4 @@
-import { Context } from "../../deps.ts";
+import { Context } from "../../types/context.ts";
 export async function timingMiddleware(ctx: Context, next: () => Promise<unknown>) {
   const start = Date.now();
   await next();
