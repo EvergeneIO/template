@@ -1,4 +1,4 @@
-import { Context } from "../../deps.ts";
+import { Context } from "../../types/context.ts";
 export function notFound(ctx: Context) {
   ctx.response.status = 404
   ctx.response.body = {
