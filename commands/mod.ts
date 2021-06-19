@@ -2,8 +2,8 @@
 import { copy as copyMigration } from "./migration.ts"
 import { copy as copyRouter } from "./router.ts"
 import { copy as copyMiddleware } from "./middleware.ts"
-import { log } from "../../src/utils/logger.ts"
-import { configs } from "../../src/config/configs.ts"
+import { log } from "../src/utils/logger.ts"
+import { configs } from "../src/config/configs.ts"
 
 log.setLevel(configs.logLevel ?? 1)
 

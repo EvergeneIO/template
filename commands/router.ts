@@ -1,5 +1,5 @@
-import { copySync, existsSync } from "../../deps.ts";
-import { log } from "../../src/utils/logger.ts";
+import { copySync, existsSync } from "../deps.ts";
+import { log } from "../src/utils/logger.ts";
 
 export async function copy(name: string | undefined) {
     const fileName = `${name}.routes.ts`

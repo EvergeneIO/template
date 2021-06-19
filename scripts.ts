@@ -24,12 +24,7 @@ export default {
             unstable: true,
         },
         create: {
-            cmd: "./commands/templates/mod.ts",
-            allow: ["net", "read", "env", "run", "write"],
-            unstable: true,
-        },
-        build: {
-            cmd: "./commands/initial/mod.ts",
+            cmd: "./commands/mod.ts",
             allow: ["net", "read", "env", "run", "write"],
             unstable: true,
         },

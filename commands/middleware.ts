@@ -1,5 +1,5 @@
-import { copySync, existsSync, format } from "../../deps.ts";
-import { log } from "../../src/utils/logger.ts"
+import { copySync, existsSync, format } from "../deps.ts";
+import { log } from "../src/utils/logger.ts"
 export async function copy(name: string | undefined) {
     const fileName = `${format(new Date(Date.now()), "yyyyMMddHHmmss")}_${name}.ts`
     log.debug("starts copying a new migration");
@@ -7,7 +7,7 @@ export async function copy(name: string | undefined) {
         log.error(`migration ${fileName} already exists! please try again with a different name`)
         return;
     }
-    await copySync("./src/templates/migration/migration.ts", `./src/database/migrations/${fileName}`);
+    await copySync("./src/templates/template.middleware.ts", `./src/middlewares/${fileName}`);
     log.info(`the migration ${fileName} was created`);
 }
 

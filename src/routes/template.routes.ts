@@ -21,6 +21,13 @@ router.get("/test", (ctx: Context) => {
 
 })
 
+/** 
+ * @ Route Secret
+ * description: get your username
+ * params: 0
+ * etc....
+*/
+
 router.get("/secret", userGuard("SOME_OTHER"), (ctx: Context) => {
     ctx.response.body = {
         username: ctx.state.user?.username
