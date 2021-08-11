@@ -12,6 +12,6 @@ export type {
 } from "https://deno.land/x/nessie@2.0.0-rc2/mod.ts";
 export { copy, copySync, walk, walkSync, existsSync } from "https://deno.land/std@0.98.0/fs/mod.ts";
 export { format } from "https://deno.land/std@0.96.0/datetime/mod.ts";
-export * as mam from "https://denopkg.com/itohatweb/mammoth@master/mod.ts";
+export * as mam from "https://denopkg.com/itohatweb/mammoth@cae278d1e4deb0e9c4660e586492bddbd891880a/mod.ts";
 export { prompt, Input, Checkbox } from "https://deno.land/x/cliffy@v0.19.2/prompt/mod.ts";
 export * as jwt from "https://deno.land/x/djwt@v2.2/mod.ts"
