@@ -5,7 +5,7 @@ export const router = new Router({ prefix: "/user" });
 
 router.get("/", (ctx: Context) => {
   ctx.response.body = { test: true };
-  console.log((helpers.getQuery(ctx)).test)
+  console.log(helpers.getQuery(ctx).test);
 });
 
 export default router;

@@ -5,8 +5,7 @@ export const router = new Router({ prefix: "/login" });
 
 router.get("/", (ctx: Context) => {
   //if (ctx.request.session.user) return ctx.response.redirect('/');
-  ctx.response.body = "yay"
+  ctx.response.body = "yay";
 });
-
 
 export default router;
