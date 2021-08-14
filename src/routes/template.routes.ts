@@ -1,6 +1,6 @@
-import { Router, jwt } from "../../../deps.ts";
-import { Context } from "../../../types/context.ts";
-import { userGuard } from "../../middlewares/user_guard.middleware.ts";
+import { Router, jwt } from "../../deps.ts";
+import { Context } from "../../types/context.ts";
+import { userGuard } from "../middlewares/user_guard.middleware.ts";
 
 const privateKey = await Deno.readTextFile("./certs/private.pem");
 
