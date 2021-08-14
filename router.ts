@@ -6,12 +6,12 @@ import { Router } from "./deps.ts";
 export const router = new Router();
 
 import { walk } from "https://deno.land/std@0.99.0/fs/walk.ts";
-
-const walkEntries = walk("./src/routes", { includeDirs: false })
+// FOLDER: api => prefix: "/api", web/frontend => prefix: "/" nicht schwer why 2 mal for schleife bin mir nicht sicher wie du meinenw
+const walkEntries = walk("./src/routes", { includeDirs: false });
 
 for await (const walkEntry of walkEntries) {
-    const im = await import(`./${walkEntry.path}`)
-    router.use(im.default.routes())
+  const im = await import(`./${walkEntry.path}`);
+  router.use(im.default.routes());
 }
 
 // import * as routers from "./src/routes/mod.routes.ts"
