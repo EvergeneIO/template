@@ -4,7 +4,7 @@ import { Context } from "../../types/context.ts";
 export async function render(
   context: Context,
   // deno-lint-ignore no-explicit-any
-  data?: { settings?: { [key: string]: any };[key: string]: any },
+  data?: { settings?: { [key: string]: any }; [key: string]: any },
   config?: PartialConfig,
   cb?: CallbackFn
 ) {

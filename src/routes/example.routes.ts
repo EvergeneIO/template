@@ -8,11 +8,11 @@ router.get("/", async (context: Context) => {
   // ctx.response.body = { test: true };
   // console.log(helpers.getQuery(ctx).test);
 
-  console.log("test")
+  console.log("test");
 
   return await render(context, {
     route: "user",
-    page: { title: "User" }
+    page: { title: "User" },
   });
 });
 
