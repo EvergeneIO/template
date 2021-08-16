@@ -1,4 +1,4 @@
-import db from "../../database/database.ts";
+/* import db from "../../database/database.ts";
 import { helpers, Router } from "../../deps.ts";
 import { Context } from "../../types/context.ts";
 import { sendEta } from "../utils/eta.ts";
@@ -14,3 +14,4 @@ router.get("/", async (context: Context) => {
 });
 
 export default router;
+ */

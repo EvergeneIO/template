@@ -1,1 +1,11 @@
-<h2>huhu</h2>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%~ includeFile('./components/head.ejs', it) %>
+  </head>
+  <body>
+    <nav><%~ includeFile(`./components/navbar.ejs`) %></nav>
+    <main><%~ includeFile(`./content/${it.route}.ejs`) %></main>
+    <footer><%~ includeFile(`./components/footer.ejs`) %></footer>
+  </body>
+</html>

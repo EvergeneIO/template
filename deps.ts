@@ -18,6 +18,6 @@ export { prompt, Input, Checkbox } from "https://deno.land/x/cliffy@v0.19.2/prom
 export * as jwt from "https://deno.land/x/djwt@v2.2/mod.ts";
 export * as mammoth from "https://denopkg.com/itohatweb/mammoth@cae278d1e4deb0e9c4660e586492bddbd891880a/mod.ts";
 
-export { renderFile } from "https://deno.land/x/eta@v1.12.3/mod.ts";
+export { renderFile, render } from "https://deno.land/x/eta@v1.12.3/mod.ts";
 export type { CallbackFn } from "https://deno.land/x/eta@v1.12.3/file-handlers.ts";
 export type { PartialConfig } from "https://deno.land/x/eta@v1.12.3/config.ts";
