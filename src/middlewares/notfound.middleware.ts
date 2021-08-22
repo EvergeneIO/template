@@ -1,8 +1,8 @@
-import { Context } from "../../types/context.ts";
+import { Context } from "../types/mod.ts";
 export function notFound(ctx: Context) {
-  ctx.response.status = 404
+  ctx.response.status = 404;
   ctx.response.body = {
     status: 404,
-    message: `cannot ${ctx.request.method} ${ctx.request.url.pathname}`
-  }
+    message: `cannot ${ctx.request.method} ${ctx.request.url.pathname}`,
+  };
 }

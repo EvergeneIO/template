@@ -1,6 +1,7 @@
 import { isHttpError, Status } from "../../deps.ts";
-import { Context } from "../../types/context.ts";
-import { configs } from "../config/configs.ts";
+import { Context } from "../types/mod.ts";
+import { configs } from "../../configs.ts";
+import { logger } from "../utils/mod.ts";
 
 export async function errorMiddleware(ctx: Context, next: () => Promise<unknown>) {
   try {
@@ -11,7 +12,7 @@ export async function errorMiddleware(ctx: Context, next: () => Promise<unknown>
 
     /**
      * considering all unhandled errors as internal server error,
-     * do not want to share internal server errors to 
+     * do not want to share internal server errors to
      * end user in non "development" mode
      */
     if (!isHttpError(err)) {
@@ -19,7 +20,7 @@ export async function errorMiddleware(ctx: Context, next: () => Promise<unknown>
     }
 
     if (configs.env === "dev" || configs.env === "development") {
-      console.log(err);
+      logger.error(err);
     }
 
     ctx.response.status = status;

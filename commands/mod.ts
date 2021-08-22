@@ -2,10 +2,10 @@
 import { copy as copyMigration } from "./migration.ts";
 import { copy as copyRouter } from "./router.ts";
 import { copy as copyMiddleware } from "./middleware.ts";
-import { log } from "../src/utils/logger.ts";
-import { configs } from "../src/config/configs.ts";
+import { logger } from "../src/utils/mod.ts";
+import { configs } from "../configs.ts";
 
-log.setLevel(configs.logLevel ?? 1);
+logger.setLevel(configs.logLevel ?? 1);
 
 import {
   Input,
@@ -29,17 +29,17 @@ const result = await prompt([
 
 switch (result.option) {
   case "migration":
-    log.info("Start copying");
+    logger.info("Start copying");
     copyMigration(result.name);
     break;
 
   case "router":
-    log.info("Start copying");
+    logger.info("Start copying");
     copyRouter(result.name);
     break;
 
   case "middleware":
-    log.info("Start copying");
+    logger.info("Start copying");
     copyMiddleware(result.name);
     break;
 }

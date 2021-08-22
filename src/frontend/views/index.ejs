@@ -1,0 +1,5 @@
+<% layout('layouts/layout.ejs') %> <%if (it.user) { %>
+<h1>Welcome Back <%~ it.user.username %></h1>
+<% } else { %>
+<h1>Welcome to the Start page!</h1>
+<% } %>

@@ -4,4 +4,4 @@ export * from "./notfound.middleware.ts";
 export * from "./error.middleware.ts";
 export * from "./jwt.middleware.ts";
 export * from "./user_guard.middleware.ts";
-//export * from "./file.middleware.ts";
+export * from "./file.middleware.ts";

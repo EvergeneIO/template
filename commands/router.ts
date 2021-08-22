@@ -1,15 +1,28 @@
-import { copySync, existsSync } from "../deps.ts";
-import { log } from "../src/utils/logger.ts";
+import { existsSync } from "../deps.ts";
+import { logger } from "../src/utils/mod.ts";
 
 export async function copy(name: string | undefined) {
   const fileName = `${name}.routes.ts`;
-  log.debug("starts copying a new router");
-  if (await existsSync(`./src/routes/${fileName}`)) {
-    log.error(`router ${fileName} already exists! please try again with a different name`);
+  logger.debug("starts writing a new router");
+  if (existsSync(`./src/routes/${fileName}`)) {
+    logger.error(`router ${fileName} already exists! please try again with a different name`);
     return;
   }
-  await copySync("./src/templates/template.routes.ts", `./src/routes/${name}.routes.ts`);
-  log.info(`the router ${fileName} was created`);
+  const encoder = new TextEncoder();
+  const data = encoder.encode(`
+  import { Router } from "../../deps.ts";
+  import { Context } from "../types/mod.ts";
+
+  export const router = new Router({ prefix: "/template" }); 
+
+  router.get("/", (context: Context) => {
+    ctx.response.body = "template";
+  });
+
+  export default router;
+  `);
+  await Deno.writeFile(`./src/routes/${name}.routes.ts`, data);
+  logger.info(`the router ${fileName} was created`);
 }
 
 export default copy;

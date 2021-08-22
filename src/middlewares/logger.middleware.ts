@@ -1,40 +1,42 @@
 import { brightGreen, brightBlue, brightYellow, brightRed, green, yellow, blue, white, red, bold } from "../../deps.ts";
-import { Context } from "../../types/context.ts";
+import { Context } from "../types/mod.ts";
 export async function loggerMiddleware(ctx: Context, next: () => Promise<unknown>) {
   await next();
   const reqTime = ctx.response.headers.get("X-Response-Time");
   const status = ctx.response.status;
-  const method = ctx.request.method
-  let color
-  let code
+  const method = ctx.request.method;
+  let color;
+  let code;
   if (status >= 200 && status < 300) {
-    code = brightGreen
+    code = brightGreen;
   } else if (status >= 300 && status < 400) {
-    code = brightBlue
+    code = brightBlue;
   } else if (status >= 400 && status < 500) {
-    code = brightYellow
+    code = brightYellow;
   } else {
-    code = brightRed
+    code = brightRed;
   }
   switch (method) {
     case "GET":
-      color = green
-      break
+      color = green;
+      break;
     case "POST":
-      color = yellow
-      break
+      color = yellow;
+      break;
     case "PUT":
-      color = blue
-      break
+      color = blue;
+      break;
     case "PATCH":
-      color = white
-      break
+      color = white;
+      break;
     case "DELETE":
-      color = red
-      break
+      color = red;
+      break;
     default:
-      color = white
-      break
+      color = white;
+      break;
   }
-  console.log(color(bold(`${ctx.request.method} `)) + `${ctx.request.url.pathname} ` + code(`${status} `) + `${reqTime}`);
+  console.log(
+    color(bold(`${ctx.request.method} `)) + `${ctx.request.url.pathname} ` + code(`${status} `) + `${reqTime}`
+  );
 }

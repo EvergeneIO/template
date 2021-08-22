@@ -13,5 +13,11 @@
   "deno.suggest.imports.hosts": {
     "https://deno.land": false,
     "https://denopkg.com": false
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }

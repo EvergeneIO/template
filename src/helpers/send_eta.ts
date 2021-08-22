@@ -1,18 +1,23 @@
-import { CallbackFn, PartialConfig, renderFile } from "../../deps.ts";
-import { Context } from "../../types/context.ts";
+import { CallbackFn, renderFile } from "../../deps.ts";
+import { Context } from "../types/mod.ts";
+import { configs } from "../../configs.ts";
 
-export async function render(
+export async function sendEta(
   context: Context,
+  fileName: string,
   // deno-lint-ignore no-explicit-any
   data?: { settings?: { [key: string]: any }; [key: string]: any },
-  config?: PartialConfig,
   cb?: CallbackFn
 ) {
   try {
     const rendered = await renderFile(
-      "layout.ejs",
+      `${fileName}.ejs`,
       data ?? {},
-      { views: "./src/frontend/views/", cache: true, ...config },
+      {
+        views: "./src/frontend/views/",
+        cache: configs.env !== "dev" ? true : false,
+        //parse: { raw: "-" },
+      },
       cb
     );
     if (!rendered) context.throw(404);

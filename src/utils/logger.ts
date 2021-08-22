@@ -28,7 +28,7 @@ const colorFunctions = new Map<Loglevels, (str: string) => string>([
   [Loglevels.Fatal, (str: string) => red(bold(italic(str)))],
 ]);
 
-export function logger({
+function createLogger({
   logLevel = Loglevels.Info,
   name,
 }: {
@@ -100,6 +100,4 @@ export function logger({
   };
 }
 
-export const log = logger();
-
-export default log;
+export const logger = createLogger();

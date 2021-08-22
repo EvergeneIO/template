@@ -1,8 +1,6 @@
-export enum Permissions {
-    ADMIN = 1 << 0,
-    USER = 1 << 1,
-    SOME_OTHER = 1 << 2,
-    MORE = 1 << 3,
-}
+export const Permissions = {
+  USER: 1n << 0n,
+  ADMIN: 1n << 1n,
+} as const;
 
 export type PermissionStrings = keyof typeof Permissions;

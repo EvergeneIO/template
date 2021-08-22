@@ -1,5 +1,5 @@
 import { PostgreSQLClientOptions, Pool } from "../../deps.ts";
-import configs from "../config/configs.ts";
+import configs from "../../configs.ts";
 
 export const pool = new Pool(
   {

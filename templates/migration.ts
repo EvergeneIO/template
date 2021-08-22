@@ -1,5 +1,5 @@
 import { AbstractMigration, ClientPostgreSQL } from "../../../deps.ts";
-import { runQuery } from "../../utils/database.ts"
+import { runQuery } from "../database.ts"
 
 export default class extends AbstractMigration<ClientPostgreSQL> {
     /** Runs on migrate */

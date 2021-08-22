@@ -39,24 +39,9 @@ services:
     networks:
       - evergene
 
-  redis:
-    image: redis:6.2.5-alpine
-    restart: unless-stopped
-    networks:
-      - evergene
-    environment:
-      TZ: Europe/Berlin
-    volumes:
-      - redis-data:/data
-      - redis-conf:/usr/local/etc/redis/redis.conf
-    ports:
-      - 6379:6379
-
 networks:
   evergene:
     external: true
 
 volumes:
   db-data:
-  redis-data:
-  redis-conf:

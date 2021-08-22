@@ -1,6 +1,5 @@
-import { send } from "https://deno.land/x/oak@v7.5.0/send.ts";
-import { Context } from "../../types/context.ts";
-import { render } from "../utils/eta.ts";
+import { send } from "../../deps.ts";
+import { Context } from "../types/mod.ts";
 
 export async function fileMiddleware(context: Context) {
   // FAVICON IS SOO COOL SO IT GETS ITS OWN SPECIAL PATH
@@ -12,5 +11,4 @@ export async function fileMiddleware(context: Context) {
   if (/\.(css|js|png|ico|woff2|wasm|svg)$/.test(context.request.url.pathname)) {
     return await send(context, context.request.url.pathname, { root: "./src/frontend/public" });
   }
-  return await render(context, context.request.url.pathname, { path: context.request.url.pathname });
 }
