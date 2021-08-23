@@ -1,8 +1,7 @@
 {
-  "name": "template-api",
-  "version": "1.0.0",
-  "description": "You need to Install PostgreSQL\r Copy `.env.example` to `.env`",
-  "main": "index.js",
+  "name": "template",
+  "version": "0.0.0",
+  "main": "mod.ts",
   "scripts": {
     "dev": "deno run -A --unstable --watch --no-check ./mod.ts",
     "migrate": "deno run -A --unstable --no-check https://deno.land/x/nessie@2.0.0/cli.ts migrate",
@@ -14,8 +13,8 @@
     "url": "git+https://github.com/EvergeneIO/template-api.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "NewtTheWolf",
+  "license": "Apache-2.0 License",
   "bugs": {
     "url": "https://github.com/EvergeneIO/template-api/issues"
   },
