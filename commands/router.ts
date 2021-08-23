@@ -16,7 +16,7 @@ export async function copy(name: string | undefined) {
   export const router = new Router({ prefix: "/template" }); 
 
   router.get("/", (context: Context) => {
-    ctx.response.body = "template";
+    context.response.body = "template";
   });
 
   export default router;
