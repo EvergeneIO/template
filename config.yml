@@ -1,7 +1,0 @@
-routers:
-  template.router:
-    routes:
-      secret:
-        cookie: token
-        param: test
-        header: ananas <h< aha
