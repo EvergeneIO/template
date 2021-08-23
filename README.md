@@ -4,7 +4,7 @@
 
 ## Usage
 
-Für das Template benötigst du eine funktionierende PostgreSQL gehe dafür am besten auf [PostgreSQL](https://www.postgresql.org/)
+For the template you need a working PostgreSQL go to the [PostgreSQL](https://www.postgresql.org/) website.
 
 Copy `.env.example` to `.env`
 
