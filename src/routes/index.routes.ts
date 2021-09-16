@@ -2,7 +2,7 @@ import { Router } from "../../deps.ts";
 import { Context } from "../types/context.ts";
 import configs from "../../configs.ts";
 import db from "../database/database.ts";
-import { cachedSessions } from "../middlewares/jwt.middleware.ts";
+import { cachedSessions } from "../middlewares/fernet.middleware.ts";
 import { userGuard } from "../middlewares/user_guard.middleware.ts";
 import { sendEta } from "../helpers/send_eta.ts";
 import { generateMaylily } from "../utils/maylily.ts";
@@ -10,6 +10,11 @@ import { quickId } from "../utils/quick_id.ts";
 import { setTokens } from "../helpers/set_tokens.ts";
 
 export const router = new Router();
+
+router.post("/test", async (context: Context) => {
+  context.response.body = { message: true };
+  console.log(await context.request.body().value);
+});
 
 router.get("/register", async (context: Context) => {
   const id = await generateMaylily();
@@ -83,6 +88,10 @@ router.delete("/delete", async (ctx: Context) => {
   for (const session of deletedSessions) {
     cachedSessions.delete(session.sessionId);
   }
+});
+
+router.get("/status", (context: Context) => {
+  context.response.body = { message: true };
 });
 
 export default router;

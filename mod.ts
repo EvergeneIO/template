@@ -1,5 +1,5 @@
 import { configs } from "./configs.ts";
-import { Application } from "./deps.ts";
+import { Application, createFernet } from "./deps.ts";
 // deno-lint-ignore no-unused-vars
 import { version } from "./src/constants/version.ts";
 import { logger } from "./src/utils/mod.ts";
@@ -8,6 +8,8 @@ import { router } from "./router.ts";
 import { StateContext } from "./src/types/mod.ts";
 
 await import("./src/intervals/mod.ts");
+
+export const fernet = createFernet(configs.fernetSecret);
 
 //Migrations
 const migration = Deno.run({
@@ -37,7 +39,7 @@ app.addEventListener("listen", ({ hostname, port }) => {
 app.use(middlewares.loggerMiddleware);
 app.use(middlewares.timingMiddleware);
 app.use(middlewares.errorMiddleware);
-app.use(middlewares.jwtMiddleware);
+app.use(middlewares.fernetMiddleware);
 
 // Routers
 app.use(router.routes());

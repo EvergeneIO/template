@@ -11,4 +11,5 @@ export interface User {
   permissions: bigint;
   username: string;
   sessionId: string;
+  expires: number;
 }
