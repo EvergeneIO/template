@@ -1,7 +1,7 @@
 import { setTokens } from "../helpers/mod.ts";
-import { fernet } from "../../mod.ts";
 import db from "../database/database.ts";
 import { Context, User } from "../types/context.ts";
+import { fernet } from "../constants/token.ts";
 
 const textDecoder = new TextDecoder();
 
