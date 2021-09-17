@@ -9,8 +9,6 @@ import { StateContext } from "./src/types/mod.ts";
 
 await import("./src/intervals/mod.ts");
 
-export const fernet = createFernet(configs.fernetSecret);
-
 //Migrations
 const migration = Deno.run({
   cmd: [
