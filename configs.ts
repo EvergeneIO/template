@@ -13,6 +13,7 @@ export const configs: Configs = {
   databaseUser: checkConfig("DATABASE_USER"),
   databasePassword: checkConfig("DATABASE_PASSWORD"),
   database: checkConfig("DATABASE"),
+  fernetSecret: checkConfig("FERNET_SECRET"),
   accessTokenLiveTime: Number(Deno.env.get("ACCESS_TOKEN_LIFE_TIME")) ?? 300,
   refreshTokenLiveTime: Number(Deno.env.get("REFRESH_TOKEN_LIFE_TIME")) ?? 36000,
   logoutRedirectUri: checkConfig("LOGOUT_REDIRECT_URI"),

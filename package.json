@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "main": "mod.ts",
   "scripts": {
-    "dev": "deno run -A --unstable --watch --no-check ./mod.ts",
+    "dev": "deno run -A --unstable --watch ./mod.ts",
     "migrate": "deno run -A --unstable --no-check https://deno.land/x/nessie@2.0.0/cli.ts migrate",
     "rollback": "deno run -A --unstable --no-check https://deno.land/x/nessie@2.0.0/cli.ts rollback",
     "create": "deno run -A --unstable --no-check ./commands/mod.ts"

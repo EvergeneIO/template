@@ -16,7 +16,6 @@ export type { NessieConfig, PostgreSQLClientOptions } from "https://deno.land/x/
 export { copy, copySync, walk, walkSync, existsSync } from "https://deno.land/std@0.105.0/fs/mod.ts";
 export { format } from "https://deno.land/std@0.105.0/datetime/mod.ts";
 export { prompt, Input, Checkbox } from "https://deno.land/x/cliffy@v0.19.2/prompt/mod.ts";
-export * as jwt from "https://deno.land/x/djwt@v2.2/mod.ts";
 export * as mammoth from "https://denopkg.com/itohatweb/mammoth@cae278d1e4deb0e9c4660e586492bddbd891880a/mod.ts";
 
 export { renderFile, render } from "https://deno.land/x/eta@v1.12.3/mod.ts";
@@ -25,3 +24,5 @@ export type { PartialConfig } from "https://deno.land/x/eta@v1.12.3/config.ts";
 export { maylily } from "https://deno.land/x/deno_maylily@3.0.0/mod.ts";
 
 export { nanoid } from "https://deno.land/x/nanoid@v3.0.0/mod.ts";
+
+export { createFernet } from "https://deno.land/x/fernet@0.2.0/mod.ts";

@@ -1,5 +1,5 @@
 import { configs } from "./configs.ts";
-import { Application } from "./deps.ts";
+import { Application, createFernet } from "./deps.ts";
 // deno-lint-ignore no-unused-vars
 import { version } from "./src/constants/version.ts";
 import { logger } from "./src/utils/mod.ts";
@@ -37,7 +37,7 @@ app.addEventListener("listen", ({ hostname, port }) => {
 app.use(middlewares.loggerMiddleware);
 app.use(middlewares.timingMiddleware);
 app.use(middlewares.errorMiddleware);
-app.use(middlewares.jwtMiddleware);
+app.use(middlewares.fernetMiddleware);
 
 // Routers
 app.use(router.routes());

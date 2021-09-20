@@ -7,6 +7,7 @@ export interface Configs {
   databaseUser: string;
   databasePassword: string;
   database: string;
+  fernetSecret: string;
   accessTokenLiveTime: number;
   refreshTokenLiveTime: number;
   logoutRedirectUri: string;
