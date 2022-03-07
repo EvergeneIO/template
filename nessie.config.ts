@@ -5,6 +5,7 @@ const config: NessieConfig = {
   client: new ClientPostgreSQL(connectionOptions),
   migrationFolders: ["./src/database/migrations"],
   seedFolders: ["./src/database/seeds"],
+  migrationTemplate: "./src/database/template/migration.ts",
   debug: false,
 };
 

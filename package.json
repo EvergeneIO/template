@@ -1,22 +1,24 @@
 {
-  "name": "template",
-  "version": "0.0.0",
+  "name": "valorankt",
+  "version": "0.1.0",
   "main": "mod.ts",
   "scripts": {
-    "dev": "deno run -A --unstable --watch ./mod.ts",
+    "dev": "deno run -A --unstable --watch --no-check ./mod.ts",
     "migrate": "deno run -A --unstable --no-check https://deno.land/x/nessie@2.0.0/cli.ts migrate",
     "rollback": "deno run -A --unstable --no-check https://deno.land/x/nessie@2.0.0/cli.ts rollback",
-    "create": "deno run -A --unstable --no-check ./commands/mod.ts"
+    "create": "deno run -A --unstable --no-check ./commands/mod.ts",
+    "build-css": "tailwindcss build template/css/main.css -o src/frontend/public/css/main.css"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/EvergeneIO/template-api.git"
-  },
+  "repository": "git+https://github.com/EvergeneIO/template-api.git",
   "keywords": [],
   "author": "NewtTheWolf",
   "license": "Apache-2.0 License",
   "bugs": {
     "url": "https://github.com/EvergeneIO/template-api/issues"
   },
-  "homepage": "https://github.com/EvergeneIO/template-api#readme"
+  "homepage": "https://github.com/EvergeneIO/template-api#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "tailwindcss": "^2.2.15"
+  }
 }

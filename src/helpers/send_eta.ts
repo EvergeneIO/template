@@ -10,22 +10,35 @@ export async function sendEta(
   cb?: CallbackFn
 ) {
   try {
+    const mode = context.request.url.pathname.split("/")[1];
     const rendered = await renderFile(
-      `${fileName}.ejs`,
+      `${mode == "admin" ? "admin/" : ""}${fileName}.ejs`,
       data ?? {},
       {
         views: "./src/frontend/views/",
-        cache: configs.env !== "dev" ? true : false,
+        cache: configs.general.env !== "dev" ? true : false,
         //parse: { raw: "-" },
       },
       cb
     );
-    if (!rendered) context.throw(404);
+    if (!rendered) {
+      context.response.status = 404;
+      return (context.response.body = {
+        status: 404,
+        message: `cannot ${context.request.method} ${context.request.url.pathname}`,
+      });
+    }
 
     context.response.body = rendered;
     context.response.type = "text/html";
   } catch (error) {
-    if (error.message.startsWith("Could not find the template")) context.throw(404);
+    if (error.message.startsWith("Could not find the template")) {
+      context.response.status = 404;
+      return (context.response.body = {
+        status: 404,
+        message: `cannot ${context.request.method} ${context.request.url.pathname}`,
+      });
+    }
 
     throw error;
   }

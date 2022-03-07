@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
+    <%~ includeFile("components/head.ejs", it) %>
+  </head>
+
+  <body class="theme-dark border-top-wide border-primary d-flex flex-column">
+    <div class="page page-center">
+      <div class="container-tight py-4">
+        <div class="text-center mb-4">
+          <a href="."><img src="/images/logo.png" height="128" alt="" /></a>
+        </div>
+        <form class="card card-md">
+          <div class="card-body">
+            <h2 class="card-title text-center mb-4">Login to your account</h2>
+            <div class="mb-3">
+              <label class="form-label required">Username or Email</label>
+              <input
+                id="username"
+                type="text"
+                name="username"
+                required
+                class="form-control"
+                placeholder="Enter username"
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label required">
+                Password
+                <span class="form-label-description">
+                  <a href="/forgot-password">I forgot password</a>
+                </span>
+              </label>
+              <div class="input-group input-group-flat">
+                <input
+                  required
+                  id="password"
+                  type="password"
+                  name="password"
+                  required
+                  class="form-control"
+                  placeholder="Password"
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+            <div id="footer" class="form-footer">
+              <button
+                id="submit"
+                type="submit"
+                class="h-captcha btn btn-primary w-100"
+                data-theme="dark"
+                data-sitekey="<%~ it.captcha.siteKey %>"
+                data-callback="onSubmit"
+              >
+                Create new account
+              </button>
+            </div>
+          </div>
+        </form>
+        <div class="text-center text-muted mt-3">
+          Don't have account yet? <a href="/register" tabindex="-1">Sign up</a>
+        </div>
+        <div class="text-center text-muted mt-3">
+          This site is protected by hCaptcha and its
+          <a href="https://hcaptcha.com/privacy">Privacy Policy</a> and
+          <a href="https://hcaptcha.com/terms">Terms of Service</a> apply.
+        </div>
+      </div>
+    </div>
+    <script src="/js/auth.bundle.js"></script>
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+  </body>
+</html>

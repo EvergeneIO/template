@@ -4,7 +4,7 @@ import { copy as copyRouter } from "./router.ts";
 import { logger } from "../src/utils/mod.ts";
 import { configs } from "../configs.ts";
 
-logger.setLevel(configs.logLevel ?? 1);
+logger.setLevel(configs.general.env === "dev" ? 0 : 1);
 
 import {
   Input,

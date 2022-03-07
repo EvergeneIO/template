@@ -3,7 +3,7 @@ import { Context } from "../types/mod.ts";
 import { configs } from "../../configs.ts";
 import { logger } from "../utils/mod.ts";
 
-export async function errorMiddleware(ctx: Context, next: () => Promise<unknown>) {
+export async function errorMiddleware(context: Context, next: () => Promise<unknown>) {
   try {
     await next();
   } catch (err) {
@@ -16,14 +16,19 @@ export async function errorMiddleware(ctx: Context, next: () => Promise<unknown>
      * end user in non "development" mode
      */
     if (!isHttpError(err)) {
-      message = configs.env === "dev" || configs.env === "development" ? message : "Internal Server Error";
+      message =
+        configs.general.env === "dev" || configs.general.env === "development" ? message : "Internal Server Error";
     }
 
-    if (configs.env === "dev" || configs.env === "development") {
+    if (configs.general.env === "dev" || configs.general.env === "development") {
       logger.error(err);
     }
 
-    ctx.response.status = status;
-    ctx.response.body = { status, message };
+    if (status === 401 && context.request.url.pathname.split("/")[1] !== "api") {
+      return context.response.redirect("/login");
+    }
+
+    context.response.status = status;
+    context.response.body = { status, message };
   }
 }

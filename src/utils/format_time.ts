@@ -47,3 +47,7 @@ export function formatTime(ms: number) {
 
   return result;
 }
+
+export function formatDate(date: any) {
+  return date.getDate() + " " + new Intl.DateTimeFormat("en", { month: "short" }).format(date);
+}

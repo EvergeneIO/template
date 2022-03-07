@@ -1,1 +1,7 @@
 .env
+node_modules/
+.datagrip/
+.idea/
+configs.ts
+public
+package-lock.json

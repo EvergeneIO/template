@@ -1,0 +1,18 @@
+<% layout('layouts/layout.ejs') %>
+<div class="row row-cards">
+  <% it.channels.forEach((channel) => { %>
+  <div class="col-md-6">
+    <a class="card card-link" href="/dashboard/c/<%~ channel.channelId %> ">
+      <div class="card-cover card-cover-blurred text-center" style="background-image: url('<%~ channel.banner %>')">
+        <span
+          class="avatar avatar-xl avatar-thumb avatar-rounded"
+          style="background-image: url('<%~ channel.profilePicture %>')"
+        ></span>
+      </div>
+      <div class="card-body text-center">
+        <div class="card-title mb-1"><%~ channel.name %></div>
+      </div>
+    </a>
+  </div>
+  <% }) %>
+</div>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <div id="wrap">
+      <div>Item 1</div>
+      <div>Item 2</div>
+      <div>Item 3</div>
+      <div>Item 4</div>
+      <div>Item 5</div>
+      <div>Item 6</div>
+      <div>Item 7</div>
+      <div>Item 8</div>
+      <div>Item 9</div>
+      <div>Item 10</div>
+      <div>Item 11</div>
+      <div>Item 12</div>
+      <div>Item 13</div>
+      <div>Item 14</div>
+      <div>Item 15</div>
+      <div>Item 16</div>
+      <div>Item 17</div>
+      <div>Item 18</div>
+      <div>Item 19</div>
+      <div>Item 20</div>
+      <div>Item 21</div>
+    </div>
+    <div class="next">Next</div>
+    <div class="prev">Prev</div>
+    <script>
+      var $el = $("#wrap > div");
+      var pageSize = 8;
+
+      $el.slice(0, pageSize).css({ background: "yellow", display: "block" });
+      $el.slice(pageSize, $el.length).css({ background: "yellow", display: "none" });
+
+      function addSlice(num) {
+        return num + pageSize;
+      }
+
+      function subtractSlice(num) {
+        return num - pageSize;
+      }
+
+      var slice = [0, pageSize];
+
+      $(".next").click(function () {
+        if (slice[1] < $el.length) {
+          slice = slice.map(addSlice);
+        }
+        showSlice(slice);
+      });
+
+      $(".prev").click(function () {
+        if (slice[0] > 0) {
+          slice = slice.map(subtractSlice);
+        }
+        showSlice(slice);
+      });
+
+      function showSlice(slice) {
+        $el.css("display", "none");
+        $el.slice(slice[0], slice[1]).css("display", "block");
+      }
+    </script>
+  </body>
+</html>

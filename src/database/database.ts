@@ -1,8 +1,33 @@
 import { mammoth } from "../../deps.ts";
-import pool from "./connection.ts";
+import pool, { sql } from "./connection.ts";
 
 import { logger } from "../utils/mod.ts";
 import * as tables from "./tables.ts";
+
+await sql`SELECT 1 + 1;`;
+
+export const db = {
+  // deno-lint-ignore no-explicit-any
+  ...mammoth.defineDb(tables, async (query: string, params: any[]) => {
+    logger.debug("[DATABASE] running query", query, params);
+
+    const dbResult = await sql.unsafe(query, params);
+
+    logger.debug("[DATABASE] query result", query, params, dbResult);
+
+    return {
+      rows: dbResult,
+      affectedCount: dbResult.count,
+    };
+  }),
+  ...mammoth,
+};
+
+// Automatically create nonexistent tables
+// await db.createTables();
+
+export default db;
+//vandal
 
 // deno-lint-ignore ban-types
 export async function runQuery<T extends {}>(
@@ -30,41 +55,3 @@ export async function runQuery<T extends {}>(
 
   return dbResult.rows;
 }
-
-await runQuery("SELECT 1 + 1;");
-
-export const db = {
-  // deno-lint-ignore no-explicit-any
-  ...mammoth.defineDb(tables, async (query: string, params: any[]) => {
-    const client = await pool.connect();
-
-    logger.debug("[DATABASE] running query", query, params);
-
-    const dbResult = await client
-      .queryObject({
-        text: query,
-        args: params,
-      })
-      .catch((error) => {
-        logger.error("[DATABASE]", query, params, "\n", error);
-        return { error: true, rows: [], rowCount: 0 };
-      });
-
-    client.release();
-
-    logger.debug("[DATABASE] query result", query, params, dbResult);
-
-    return {
-      rows: dbResult.rows,
-      affectedCount: dbResult.rowCount ?? dbResult.rows.length,
-    };
-  }),
-  ...mammoth,
-  runQuery,
-};
-
-// Automatically create nonexistent tables
-// await db.createTables();
-
-export default db;
-//vandal

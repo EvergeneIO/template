@@ -8,7 +8,7 @@ export async function fileMiddleware(context: Context) {
   }
 
   // NON ETA FILES SHOULD NOT BE RENDERED
-  if (/\.(css|js|png|ico|woff2|wasm|svg)$/.test(context.request.url.pathname)) {
+  if (/\.(css|js|png|jpg|ico|woff2|woff|ttf|wasm|svg|map)$/.test(context.request.url.pathname)) {
     return await send(context, context.request.url.pathname, { root: "./src/frontend/public" });
   }
 }

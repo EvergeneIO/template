@@ -1,22 +1,19 @@
 import { Router } from "./deps.ts";
+import { walk } from "https://deno.land/std@0.99.0/fs/walk.ts";
+import { formatTime, logger } from "./src/utils/mod.ts";
 
-// import templateRouter from "./src/routes/template.routes.ts"
-// import exampleRouter from "./src/routes/example.routes.ts"
+const start = Date.now();
+logger.info("Starting to Register all Routes");
 
 export const router = new Router();
 
-import { walk } from "https://deno.land/std@0.99.0/fs/walk.ts";
-// FOLDER: api => prefix: "/api", web/frontend => prefix: "/" nicht schwer why 2 mal for schleife bin mir nicht sicher wie du meinenw
 const walkEntries = walk("./src/routes", { includeDirs: false });
 
 for await (const walkEntry of walkEntries) {
+  const start = Date.now();
   const im = await import(`./${walkEntry.path}`);
   router.use(im.default.routes());
+  logger.info(`Register Route ${walkEntry.name} || ${formatTime(Date.now() - start)}`);
 }
 
-// import * as routers from "./src/routes/mod.routes.ts"
-// console.log(routers)
-
-// export const router = new Router();
-
-// for (const route of Object.values(routers)) router.use(route.routes())
+logger.info(`All Routes Registerd || ${formatTime(Date.now() - start)}`);

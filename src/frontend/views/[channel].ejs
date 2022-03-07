@@ -1,0 +1,29 @@
+<% layout('layouts/layout.ejs') %>
+<div class="container-xl">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="card">
+        <div class="card-body">
+          <div class="divide-y">
+            <% console.log(it) %> <% it.videos.forEach((video) => { %>
+            <div>
+              <div class="row">
+                <div class="col-auto">
+                  <span
+                    class="avatar avatar-xl"
+                    style="background-image: url('<%~ video.snippet.thumbnails.default.url %>')"
+                  ></span>
+                </div>
+                <div class="col">
+                  <div class="text-truncate"><strong><%~ video.snippet.title %></strong></div>
+                  <div class="text-muted"><%~ video.snippet.publishedAt %></div>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
